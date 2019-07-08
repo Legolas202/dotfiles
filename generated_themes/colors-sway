@@ -1,0 +1,21 @@
+set $wallpaper /home/legolas20/Images/wallpapers/cherry_bloom.png
+
+set $background #242423
+set $foreground #e2d2da
+
+set $color0 #242423
+set $color1 #92666F
+set $color2 #898A74
+set $color3 #AD768A
+set $color4 #AB999C
+set $color5 #CEA2B2
+set $color6 #BEC3B2
+set $color7 #e2d2da
+set $color8 #9e9398
+set $color9 #92666F
+set $color10 #898A74
+set $color11 #AD768A
+set $color12 #AB999C
+set $color13 #CEA2B2
+set $color14 #BEC3B2
+set $color15 #e2d2da

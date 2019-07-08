@@ -1,0 +1,24 @@
+wallpaper: "/home/legolas20/Images/wallpapers/cherry_bloom.png"
+
+special:
+    background: "#242423"
+    foreground: "#e2d2da"
+    cursor: "#e2d2da"
+
+colors:
+    color0: "#242423"
+    color1: "#92666F"
+    color2: "#898A74"
+    color3: "#AD768A"
+    color4: "#AB999C"
+    color5: "#CEA2B2"
+    color6: "#BEC3B2"
+    color7: "#e2d2da"
+    color8: "#9e9398"
+    color9: "#92666F"
+    color10: "#898A74"
+    color11: "#AD768A"
+    color12: "#AB999C"
+    color13: "#CEA2B2"
+    color14: "#BEC3B2"
+    color15: "#e2d2da"
