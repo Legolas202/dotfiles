@@ -6,9 +6,10 @@ URxvt*termName: rxvt-unicode-256color
 !!URxvt*font: xft:DejaVu Sans Mono:pixelsize=13
 !!URxvt*boldFont: xft:Fantasque Sans Mono:pixelsize=13
 !!URxvt*font: xft:scientifica
-URxvt*font: xft:Fantasque Sans Mono:pixelsize=13
-URxvt*boldFont: xft:Fantasque Sans Mono:pixelsize=13:weight=bold
-!!URxvt*letterSpace: -1
+!!URxvt.font: xft:Fantasque Sans Mono:pixelsize=13
+URxvt.font: xft:Iosevka Light:pixelsize=15
+URxvt*boldFont: xft:Iosevka Medium:pixelsize=15
+URxvt*letterSpace: 0 
 !!Scroll bar
 !!URxvt*savelines: 1000000
 URxvt*scrollBar: false
@@ -23,8 +24,10 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 xvt.iso14755: false
 URxvt.iso14755_52: false
+URxvt.keysym.C-j:   resize-font:smaller
+URxvt.keysym.C-k:   resize-font:bigger
 !!Perl stuff
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,resize-font
 
 !! Colors
 *foreground:   #c5c8c6
@@ -68,6 +71,7 @@ URxvt.perl-ext-common: default,matcher
 ! ROFI Color theme
 ! Copyright: 2017 leofa
 ! ------------------------------------------------------------------------------
+rofi.font: Iosevka Light 13
 ! "Color scheme for normal row" Set from: File
 rofi.color-normal:                  #373b41, #959a5f, #373b41, #7b9071, #f9f9f9
 ! "Color scheme for urgent row" Set from: File

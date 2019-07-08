@@ -145,6 +145,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+#reload screen
+bindsym $mod+Shift+s exec randrctl auto  
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -183,7 +185,7 @@ bindsym $mod+r mode "resize"
 #       tray_output primary
 #}
 
-exec_always --no-startup-id "killall polybar; polybar -r bar1"
+exec_always --no-startup-id ~/dotfiles/.config/i3/bar-launcher.sh
 #Window borders
 gaps inner 20
 gaps outer 25
@@ -195,8 +197,11 @@ smart_borders on
 default_border pixel 2
 
 #Monitor
-exec .screenlayout/big_mono.sh
-exec feh --bg-scale ~/Images/forest.png
+#exec .screenlayout/big_mono.sh
+#configs: big_screen | laptop
+exec randrctl auto
+exec feh --bg-scale ~/Images/wallpapers/cherry_bloom.png
+exec wal -R
 
 set_from_resource $active color10
 
