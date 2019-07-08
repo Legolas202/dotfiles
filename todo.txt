@@ -1,0 +1,5 @@
+-reconfigure rofi
+-dunst !!!
+-screens
+-vim ?
+-polybar
