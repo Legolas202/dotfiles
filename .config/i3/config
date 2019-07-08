@@ -200,7 +200,7 @@ default_border pixel 2
 #exec .screenlayout/big_mono.sh
 #configs: big_screen | laptop
 exec randrctl auto
-exec feh --bg-scale ~/Images/wallpapers/cherry_bloom.png
+exec feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
 exec wal -R
 
 set_from_resource $active color10
