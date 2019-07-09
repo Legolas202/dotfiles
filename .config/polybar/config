@@ -18,7 +18,7 @@ primary = #ffb52a
 secondary = #e60053
 alert = #242423
 workspace = #92666F
-urgent = `#898A74
+urgent = #898A74
 
 [bar/bar1]
 ;monitor = ${env:MONITOR:HDMI-1}
