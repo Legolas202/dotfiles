@@ -16,12 +16,14 @@ foreground = ${xrdb:color7:#222}
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
-alert = #bd2c40
+alert = #242423
+workspace = #92666F
+urgent = `#898A74
 
 [bar/bar1]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 34
+height = 28
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -30,34 +32,38 @@ fixed-center = false
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 
-line-size = 4
-line-color = #f00
+line-size = 5
+;line-color = #f00
 
 border-size = 0
 
 module-margin-left = 0
-module-margin-right = 1
-
-padding-left = 0;
-padding-right = 0;
+module-margin-right = 0
+padding-left = 0
+padding-right = 0
 
 font-0 = Ioveska Light:pixelsize=10;1
 font-1 = FontAwesome:size=10
 font-2 = Ioveska Light:antialias=true:size=40
 font-3 = FontAwesome:size=20
+font-4 = RobotoMono Nerd Font:antialias=false:size=30;5
+font-5 = RobotoMono Nerd Font:antialias=false:size=14;6
+font-6 = RobotoMono Nerd Font:antialias=false:size=14;1
+
+;font-4 = Material Icons:style=Regular
 ;font-2 = Fantasque Sans Mono:pixelsize=19;4
 
-modules-left = bspwm i3
+modules-left = bspwm s2 s3 i3 s4
 modules-center = xwindow 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu temperature battery date powermenu
-
+modules-right = s5 filesystem xbacklight s1 xkeyboard s1 memory s1 cpu s1 temperature s1 battery s1 date s1 powermenu s4 
+;volume
 tray-position = right
 tray-padding = 0
 ;tray-transparent = true
-;tray-background = #0063ff
+tray-background = ${colors.background}
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
@@ -70,18 +76,41 @@ tray-padding = 0
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/arrow0]
-type= custom/text
-content= 
-;content-foreground= ${colors.xcolor0}
-;content-background= ${colors.xcolor1}
+[module/s1]
 
-[module/s7]
-type= custom/text
-content= "%{T4}%{T-}"
-content-foreground= ${colors.foreground}
-content-background= ${colors.background}
+type = custom/text
+content = "%{T5}%{T-}"
+content-background = #92666F
+content-foreground = #CEA2B2
+content-underline = ${colors.background}
 
+[module/s2]
+
+type = custom/text
+content = "%{T6}%{T-}"
+content-background = ${colors.background}
+content-foreground = ${colors.background}
+
+[module/s3]
+
+type = custom/text
+content = "%{T7}%{T-}"
+content-background = ${colors.background}
+content-foreground = ${colors.workspace}
+
+[module/s4]
+
+type = custom/text
+content = "%{T7}%{T-}"
+content-background = ${colors.background}
+content-foreground = ${colors.workspace}
+
+[module/s5]
+
+type = custom/text
+content = "%{T7}%{T-}"
+content-background = ${colors.background}
+content-foreground = ${colors.workspace}
 
 [module/manjaro]
 type=custom/text
@@ -100,15 +129,17 @@ blacklist-0 = num lock
 
 format-prefix = " " 
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${xrdb:background}
+format-prefix-underline = ${colors.background}
 
 label-layout =  %layout%
-label-layout-underline = ${xrdb:background}
+label-layout-underline = ${colors.background}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-underline =#00000000
+format-background = #92666F
+format-underline = ${colors.background}
 
 [module/filesystem]
 type = internal/fs
@@ -119,7 +150,10 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-
+label-mounted-background = #92666F
+label-unmounted-background = #92666F
+label-mounted-underline= ${colors.background}
+label-unmounted-underline= ${colors.background}
 [module/bspwm]
 type = internal/bspwm
 
@@ -152,32 +186,34 @@ label-mode-padding = 0
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %index% %icon% 
+label-focused = %icon% 
 ;label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-background = ${xrdb:background}
-label-focused-foreground = ${xrdb:color10}
-label-focused-underline = ${xrdb:color10}
+label-focused-background = ${colors.workspace}
+label-focused-foreground = ${colors.alert}
+label-focused-underline = ${colors.background}
 ;#00000000
 ;${xrdb:color10}
 ;label-focused-background = ${module/bspwm.label-focused-background}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = 5;${module/bspwm.label-focused-padding}
+label-focused-padding = 2;${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused =  %icon% 
 label-unfocused-padding = 2;${module/bspwm.label-occupied-padding}
+label-unfocused-background =${colors.workspace}
+label-unfocused-underline = ${colors.background}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index% %icon% 
+label-visible = %icon% 
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent =%icon%
-label-urgent-background = ${xrdb:background}
-label-urgent-foreground = ${xrdb:color11}
-label-urgent-underline = ${xrdb:color11}
+label-urgent-background = ${colors.workspace}
+label-urgent-foreground = ${colors.urgent}
+label-urgent-underline = ${colors.background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ws-icon-0= 1; 
@@ -227,18 +263,22 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:background}
+format-prefix-background = #92666F
+format-underline = ${colors.background}
 label = %percentage:2%%
+format-background = #92666F
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:background}
+format-underline =${colors.background}
+; ${xrdb:background}
 label = %percentage_used%%
+format-background = #92666F
 
 [module/wlan]
 type = internal/network
@@ -292,8 +332,9 @@ time-alt = %H:%M:%S
 format-prefix = 
 format-prefix-padding= 
 format-prefix-foreground = ${colors.foreground-alt}
+format-background = #92666F
 ;format-underline = #0a6cf5
-
+format-underline = ${colors.background}
 label = %date%  %time%
 
 [module/volume]
@@ -329,9 +370,11 @@ type = internal/battery
 battery = BAT0
 adapter = AC0
 full-at = 98
+format-discharging-background=#92666F
+format-charging-background=#92666F
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${xrdb:background}
+format-charging-underline = ${colors.background}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -359,7 +402,8 @@ animation-charging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
-
+format-background = #92666F
+format-underline=${colors.background}
 format = <ramp> <label>
 ;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
@@ -373,12 +417,14 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+;ramp-background = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
 expand-right = true
-
+format-background = #92666F
 format-spacing = 2
+format-underline = ${colors.background}
 
 label-open = 
 label-open-foreground = ${colors.secondary}
