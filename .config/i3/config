@@ -38,8 +38,8 @@ bindsym $mod+Shift+a kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec rofi -show drun
-bindsym $mod+d exec rofi -modi drun -show drun -location 7 -yoffset -50 -xoffset 15 -line-padding 2 -columns 1 -width 20 -padding 25 -hide-scrollbar -show-icons
-bindsym $mod+Shift+d exec rofi -modi run -show run -location 7 -yoffset -50 -xoffset 15 -line-padding 2 -columns 1 -width 20 -padding 25 -hide-scrollbar
+bindsym $mod+d exec rofi -modi drun -show drun -location 0 -yoffset 0 -xoffset 0 -line-padding 2 -columns 1 -width 30 -padding 5 -hide-scrollbar -show-icons 
+bindsym $mod+Shift+d exec rofi -modi run -show run -location 0 -yoffset 0 -xoffset 0 -line-padding 2 -columns 1 -width 30 -padding 5 -hide-scrollbar
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -197,11 +197,13 @@ smart_borders on
 default_border pixel 2
 
 #Monitor
-#exec .screenlayout/big_mono.sh
+exec_always .screenlayout/big_mono.sh
 #configs: big_screen | laptop
 exec randrctl auto
-exec feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
-exec wal -R
+#exec_always feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
+#exec_always wal -i ~/dotfiles/wallpapers/cherry_bloom.png
+exec_always wal -R 
+exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./auto-save.sh
 
 set_from_resource $active color10
 

@@ -21,7 +21,7 @@
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #242423;
+    background: #000000;
     foreground: #e2d2da;
     border-color: @background;
     spacing: 2;

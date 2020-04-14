@@ -3,7 +3,8 @@ filetype plugin indent on
 syntax on 
 set mouse=a 
 let g:airline_powerline_fonts = 1 
-let g:airline_theme = 'forest'
+let g:airline_theme = 'wal'
+colorscheme wal
 set numberwidth=6
 nmap <F2>           <Plug>ToggleHexHighlight
 nmap <leader><F2>   <Plug>ToggleSchemeHighlight
