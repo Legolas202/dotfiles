@@ -202,7 +202,7 @@ exec_always .screenlayout/big_mono.sh
 exec randrctl auto
 #exec_always feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
 #exec_always wal -i ~/dotfiles/wallpapers/cherry_bloom.png
-exec_always wal -R 
+exec_always wal -R -o ~/dotfiles/scripts/dunst-colors.sh
 exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./auto-save.sh
 
 set_from_resource $active color10
