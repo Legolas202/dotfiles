@@ -128,7 +128,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " " 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${xrdb:color5}
 format-prefix-underline = ${colors.background}
 
 label-layout =  %layout%
@@ -254,7 +254,7 @@ bar-fill-font = 2
 bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${xrdb:color2}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -264,8 +264,8 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${xrdb:color5}
 format-prefix-background = ${xrdb:color1}
 format-underline = ${colors.background}
 label = %percentage:2%%
@@ -274,8 +274,8 @@ format-background = ${xrdb:color1}
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${xrdb:color5}
 format-underline =${colors.background}
 ; ${xrdb:background}
 label = %percentage_used%%
@@ -332,7 +332,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-padding= 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${xrdb:color5}
 format-background = ${xrdb:color1}
 ;format-underline = #0a6cf5
 format-underline = ${colors.background}
@@ -389,14 +389,14 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${xrdb:color5}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${xrdb:color5}
 animation-charging-framerate = 750
 
 [module/temperature]
@@ -417,7 +417,7 @@ label-warn-foreground = ${colors.secondary}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${xrdb:color5}
 ;ramp-background = ${colors.foreground}
 
 [module/powermenu]

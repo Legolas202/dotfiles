@@ -50,7 +50,7 @@ exec --no-startup-id "setxkbmap -layout us,fr, us -variant intl"
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
 bindsym $mod+Shift+f exec "setxkbmap -layout fr"
 bindsym $mod+Shift+u exec "setxkbmap -layout us"
-bindsym --release Print exec scrot -e 'mv $f ~/Images/screen'
+bindsym --release Print exec scrot -e 'mv $f ~/Images/screen' && notify-send "Screenshoot taken" 
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -63,10 +63,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+g focus left
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+m move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -194,16 +194,24 @@ smart_borders on
 # for_window[class="URxvt"]border none #pixel 4
 # for_window[class="Firefox"] border none
 # for_window[class="Thunar"] floating enable border none
+for_window[class="Sxiv"] floating enabled border none
 default_border pixel 2
 
+#To load at start
 #Monitor
 exec_always .screenlayout/big_mono.sh
 #configs: big_screen | laptop
 exec randrctl auto
 #exec_always feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
 #exec_always wal -i ~/dotfiles/wallpapers/cherry_bloom.png
-exec_always wal -R -o ~/dotfiles/scripts/dunst-colors.sh
+exec_always wal -R -o ~/dotfiles/scripts/wal-other.sh
 exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./auto-save.sh
+exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./battery.sh
+
+#customs keybindings
+bindsym $mod+c exec ~/dotfiles/scripts/theme.sh
+bindsym $mod+y exec ~/dotfiles/scripts/keyboard.sh
+bindsym $mod+m exec ~/dotfiles/scripts/manpdf
 
 set_from_resource $active color10
 
@@ -215,3 +223,11 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
  
 client.background       #ffffff
+
+#commands to open windows in floating mode
+for_window [instance="pong"] floating enabled
+for_window [instance="font-test"] floating enabled
+for_window [instance="chrono"] floating enabled
+for_window [instance="test-audio"] floating enabled
+for_window [instance="racing"] floating enabled
+for_window [instance="minesweeper"] floating enabled

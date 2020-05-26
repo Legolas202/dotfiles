@@ -30,14 +30,16 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec rxvt-unicode 
-bindsym $mod+Shift+Return exec gnome-terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+Ctrl+Return exec urxvt && floating toggle
+bindsym $mod+Shift+Return exec xfce4-terminal
 # kill focused window
 bindsym $mod+Shift+a kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun 
-bindsym $mod+Shift+d exec rofi -show run
+#bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -modi drun -show drun -location 0 -yoffset 0 -xoffset 0 -line-padding 2 -columns 1 -width 30 -padding 5 -hide-scrollbar -show-icons 
+bindsym $mod+Shift+d exec rofi -modi run -show run -location 0 -yoffset 0 -xoffset 0 -line-padding 2 -columns 1 -width 30 -padding 5 -hide-scrollbar
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -48,7 +50,7 @@ exec --no-startup-id "setxkbmap -layout us,fr, us -variant intl"
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
 bindsym $mod+Shift+f exec "setxkbmap -layout fr"
 bindsym $mod+Shift+u exec "setxkbmap -layout us"
-bindsym --release Print exec scrot -e 'mv $f ~/Images/screen'
+bindsym --release Print exec scrot -e 'mv $f ~/Images/screen' && notify-send "Screenshoot taken" 
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -99,7 +101,7 @@ bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -122,11 +124,12 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-assign [class="Code"] 1
-assign [class="Gedit"] 1
-assign [class="GitKraken"] 1
+assign [class="code-oss"] 1
+assign [class="processing-app-Base"] 1
+assign [class="Mousepad"] 1
 assign [class="Firefox"]3
 assign [class="Spotify"] 4
+for_window[class="Spotify"] move to workspace 4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -142,6 +145,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+#reload screen
+bindsym $mod+Shift+s exec randrctl auto  
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -180,18 +185,38 @@ bindsym $mod+r mode "resize"
 #       tray_output primary
 #}
 
-exec_always --no-startup-id "killall polybar; polybar -r example"
+exec_always --no-startup-id ~/dotfiles/.config/i3/bar-launcher.sh
 #Window borders
 gaps inner 20
-gaps outer 15 
+gaps outer 25
 smart_gaps on
 smart_borders on
-for_window[class="URxvt"]border none #pixel 4 
-for_window[class="Firefox"] border none
-for_window[class="Thunar"] floating enable border none 
+# for_window[class="URxvt"]border none #pixel 4
+# for_window[class="Firefox"] border none
+# for_window[class="Thunar"] floating enable border none
+default_border pixel 2
 
 #Monitor
-exec .screenlayout/big_mono.sh
-exec feh --bg-scale ~/Images/forest.png
+exec_always .screenlayout/big_mono.sh
+#configs: big_screen | laptop
+exec randrctl auto
+#exec_always feh --bg-scale ~/dotfiles/wallpapers/cherry_bloom.png
+#exec_always wal -i ~/dotfiles/wallpapers/cherry_bloom.png
+exec_always wal -R -o ~/dotfiles/scripts/dunst-colors.sh
+exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./auto-save.sh
+exec_always sleep 5 && cd ~/dotfiles/scripts/ && ./battery.sh
+bindsym $mod+c exec ~/dotfiles/scripts/theme.sh
+bindsym $mod+y exec ~/dotfiles/scripts/keyboard.sh
 
+set_from_resource $active color10
 
+# class                 border  backgr. text    indicator child_border
+client.focused          $active $active #ffffff $active   $active
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+ 
+client.background       #ffffff
+
+#Special windows
