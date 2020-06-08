@@ -12,3 +12,4 @@ fi
 
 # Customize to your needs...
 alias lycee="cd /home/legolas20/Bureau/REMY/LYCEE/TS2"
+alias proj="cd /home/legolas20/code/cpp/sfml/tetris"

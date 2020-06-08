@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+sed -i "$ d" ~/dotfiles/zsh/zshrc
+echo "alias proj=\"cd $(pwd)\"">> ~/dotfiles/zsh/zshrc
+source ~/.zshrc 

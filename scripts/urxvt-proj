@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+STR="$(sed -n "$ p" ~/dotfiles/zsh/zshrc)"
+eval "$STR"
+echo "$(proj&&pwd)" | xargs urxvt -cd

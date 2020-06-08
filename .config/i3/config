@@ -32,7 +32,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+Ctrl+Return exec urxvt && floating toggle
-bindsym $mod+Shift+Return exec xfce4-terminal
+bindsym $mod+Shift+Return exec cd ~/dotfiles/scripts/ && ./urxvt-proj
 # kill focused window
 bindsym $mod+Shift+a kill
 
@@ -231,3 +231,4 @@ for_window [instance="chrono"] floating enabled
 for_window [instance="test-audio"] floating enabled
 for_window [instance="racing"] floating enabled
 for_window [instance="minesweeper"] floating enabled
+for_window [instance="tetris"] floating enabled
