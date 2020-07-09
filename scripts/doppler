@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+notify-send "Loading weather forecast" "Please wait a moment..."
+wget wttr.in/Echenevex.png && sxiv Echenevex.png &
+curl  https://www.meteo60.fr/radars/animation-radar-centre-est.gif > doppler.gif && sxiv doppler.gif -a &
+wait
+rm -rf doppler.gif
+rm -rf Echenevex.png

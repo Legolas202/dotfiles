@@ -232,3 +232,4 @@ for_window [instance="test-audio"] floating enabled
 for_window [instance="racing"] floating enabled
 for_window [instance="minesweeper"] floating enabled
 for_window [instance="tetris"] floating enabled
+for_window [instance="loop"] floating enabled
