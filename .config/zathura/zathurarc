@@ -20,14 +20,14 @@ set guioptions ""
 # zathurarc-dark
 
 #set font "inconsolata 15"
-set default-bg "#120e20" #00
-set default-fg "#a2dceb" #01
+set default-bg "#0C0C0D" #00
+set default-fg "#dee1dd" #01
 
 set statusbar-fg "#B0B0B0" #04
 set statusbar-bg "#202020" #01
 
-set inputbar-bg "#9CD36D" #00 currently not used
-set inputbar-fg "#a2dceb" #02
+set inputbar-bg "#759492" #00 currently not used
+set inputbar-fg "#dee1dd" #02
 
 set notification-error-bg "#AC4142" #08
 set notification-error-fg "#151515" #00
@@ -35,21 +35,21 @@ set notification-error-fg "#151515" #00
 set notification-warning-bg "#AC4142" #08
 set notification-warning-fg "#151515" #00
 
-set highlight-color "#9CD36D" #0A
-set highlight-active-color "#4070AE" #0D
+set highlight-color "#759492" #0A
+set highlight-active-color "#90A6A1" #0D
 
 set completion-highlight-fg "#151515" #02
-set completion-highlight-bg "#9CD36D" #0C
+set completion-highlight-bg "#759492" #0C
 
-set completion-bg "#120e20" #02
-set completion-fg "#a2dceb" #0C
+set completion-bg "#0C0C0D" #02
+set completion-fg "#dee1dd" #0C
 
-set notification-bg "#9CD36D" #0B
-set notification-fg "#91BC68" #00
+set notification-bg "#759492" #0B
+set notification-fg "#1B959B" #00
 
 set recolor "true"
-set recolor-lightcolor "#120e20" 
-set recolor-darkcolor "#a2dceb" 
+set recolor-lightcolor "#0C0C0D" 
+set recolor-darkcolor "#dee1dd" 
 set recolor-reverse-video "true"
 #set recolor-keephue "true"
 

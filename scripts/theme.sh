@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#script to change wallpaper and color others apps (urxvt/dunst/spotify/zathura...) with pywal
+
 #cd ~/dotfiles/wallpapers
 #ls -a -t -1
 #echo -n -e "\nWhich wallpaper do you  want ?\n"

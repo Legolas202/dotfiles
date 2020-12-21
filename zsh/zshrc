@@ -12,4 +12,7 @@ fi
 
 # Customize to your needs...
 alias -g lycee="/home/legolas20/Bureau/REMY/LYCEE/TS2"
-alias proj="cd /home/legolas20/dotfiles/startpage"
+alias -g cpge="/home/legolas20/Bureau/REMY/CPGE/SUP/"
+alias -g yt="youtube-dl --add-metadata -i"
+alias -g yta="yt -x -f bestaudio/best"
+alias proj="cd /home/legolas20/code/scripts"

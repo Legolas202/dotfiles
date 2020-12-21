@@ -1,0 +1,49 @@
+#!/bin/sh
+# display all the snippets LaTeX
+file="/home/legolas20/dotfiles/.vim/mySnippets/tex.snippets"
+symbol=($(sed -n -r '/^snippet /p' $file | cut -d' ' -f2))
+IFS=$'\n' read -d '' -ra name <<< "$(sed -n -r '/^snippet /p' $file | cut -d\" -f2)"
+IFS=$'\n' read -d '' -ra explain <<< "$(sed -n -r '/^# /s/#/ /gp' $file)"
+doc="doc.tex"
+
+touch $doc
+
+BEG=$(cat <<-EOL
+\\\nonstopmode
+\\\documentclass{article}
+\\\usepackage[utf8]{inputenc}
+\\\usepackage{verbatim}
+\\\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\\\title{\\\LaTeX\\\  snippets: Cheatsheet}
+\\\author{}
+\\\date{}
+
+\\\begin{document}
+\\\maketitle
+\\\begin{center}
+\\\begin{tabular}{| c c c c |}
+\\\hline
+Symbol & Name & Explanation & \\\\\ 
+\\\hline
+\\\hline
+EOL
+)
+
+echo -e "$BEG" > $doc
+
+for ((i=0 ; i<${#symbol[@]}; i++)); do
+	echo "\\verb|${symbol[$i]}| & ${name[$i]} & ${explain[$i]} & \\\\ "  >> $doc
+	echo "\hline" >> $doc
+done
+
+END=$(cat <<-EOL
+\\\end{tabular}
+\\\end{center}
+\\\end{document}
+EOL
+)
+
+echo -e "$END" >> $doc
+pdflatex $doc >/dev/null 
+zathura ${doc%.tex}.pdf
+rm -rf ${doc%.tex}*

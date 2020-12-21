@@ -48,8 +48,6 @@ bindsym $mod+Shift+d exec rofi -modi run -show run -location 0 -yoffset 0 -xoffs
 #keyboard layout
 exec --no-startup-id "setxkbmap -layout us,fr, us -variant intl"
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
-bindsym $mod+Shift+f exec "setxkbmap -layout fr"
-bindsym $mod+Shift+u exec "setxkbmap -layout us"
 bindsym --release Print exec scrot -e 'mv $f ~/Images/screen' && notify-send "Screenshoot taken" 
 
 # Pulse Audio controls
@@ -191,6 +189,9 @@ gaps inner 20
 gaps outer 25
 smart_gaps on
 smart_borders on
+bindsym $mod+i gaps inner current set 20; gaps outer current set 25
+bindsym $mod+Shift+i gaps inner current set 0; gaps outer current set 0
+
 # for_window[class="URxvt"]border none #pixel 4
 # for_window[class="Firefox"] border none
 # for_window[class="Thunar"] floating enable border none
@@ -233,3 +234,5 @@ for_window [instance="racing"] floating enabled
 for_window [instance="minesweeper"] floating enabled
 for_window [instance="tetris"] floating enabled
 for_window [instance="loop"] floating enabled
+for_window [instance="asteroids"] floating enabled
+for_window [instance="shader"] floating enabled

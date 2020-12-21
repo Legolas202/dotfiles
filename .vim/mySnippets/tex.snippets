@@ -1,0 +1,208 @@
+# Create the basic template for a LaTeX document
+snippet template "Template" wA
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{thmtools}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+\declaretheoremstyle[
+	postfoothook={\vskip 0.35cm},
+	mdframed={
+		skipabove=0.35cm,
+		innerbottommargin=0.2cm,
+		innertopmargin=0.2cm,
+		innerleftmargin=0.2cm,
+		innerrightmargin=0.2cm,
+	}
+]{skips}
+
+\declaretheorem[style=skips,name={Théorème}]{theomd}
+\declaretheorem[style=skips,name={Corollaire}]{coromd}
+\declaretheorem[style=skips,name={Lemma}]{lemmd}
+\declaretheorem[style=skips,name={Définition}]{defmd}
+\declaretheorem[style=skips,name={Propriété}]{propmd}
+
+\title{\textbf{$1}}
+\author{COURT Rémy}
+\date{}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+### MATHS COMMANDS ###
+
+# Create a inline math environnement
+snippet im "inline math" wA
+$$1$$0
+endsnippet
+
+# Create a display math environnement
+snippet dm "display math" wA
+\[
+$1
+.\] 
+$0
+endsnippet
+
+# Create a aligned math environnement
+snippet alm "aligned math" wA
+\begin{align*}
+$1
+\end{align*} 
+$0
+endsnippet
+
+# Sup-script mode
+snippet ^^ "sup-script" iA
+^{$1}$0
+endsnippet
+
+# Sub-script mode
+snippet __ "sub-script" iA
+_{$1}$0
+endsnippet
+
+# Arrow to
+snippet -> "to" wA
+\to $0
+endsnippet
+
+# Arrow equiv
+snippet <-> "equiv" wA
+\Leftrightarrow $0
+endsnippet
+
+# Arrow maps to
+snippet !> "mapsto" wA
+\mapsto $0
+endsnippet
+
+# Arrow implies
+snippet => "implies" Ai
+\implies $0
+endsnippet
+
+# Arrow is implied by
+snippet <= "implied by" Ai
+\impliedby $0
+endsnippet
+
+# Fraction
+snippet // "Fraction" wA
+\frac{$2}{$1} $0
+endsnippet
+
+### DOCUMENT ###
+
+# Create basic environnememnt tag
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+# Create item environnememnt 
+snippet Item "itemize" wA
+\begin{itemize}
+	\item $1
+\end{itemize}
+$0
+endsnippet
+
+# Create enum environnememnt 
+snippet Enum "enumerate" wA
+\begin{enumerate}
+	\item $1
+\end{enumerate}
+$0
+endsnippet
+
+# arrow to, outside maths 
+snippet --> "to" wA
+$\to$ $0
+endsnippet
+
+# arrow equiv, outside maths 
+snippet <--> "to" wA
+$\Leftrightarrow$ $0
+endsnippet
+
+# Create table environnement
+snippet table "table" b
+\begin{center}
+	\begin{tabular}{| c c c c |}
+		\hline
+		x & x & x & x \\\
+		\hline\hline
+		x & x & x & x \\\
+		\hline
+		x & x & x & x \\\
+		\hline
+		x & x & x & x \\\
+		\hline
+	\end{tabular}
+\end{center}
+endsnippet
+
+# Create figure environnement
+snippet figure "figure" b
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{$1}
+	\caption{$2}
+\end{figure}
+$0
+endsnippet
+
+# Create wrapfigure environnement
+snippet wrapfigure "wrapfigure" b
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.5\textwidth]{$1}
+	\caption{$2}
+\end{wrapfigure}
+$0
+endsnippet
+
+# Create theorem environnement
+snippet theomd "theorem" bA
+\begin{theomd}
+$0
+\end{theomd}
+endsnippet
+
+# Create property environnement
+snippet propmd "prop" bA
+\begin{propmd}
+$0
+\end{propmd}
+endsnippet
+
+# Create definition environnement
+snippet defmd "def" bA
+\begin{defmd}
+$0
+\end{defmd}
+endsnippet
+
+# Create corollary environnement
+snippet coromd "coro" bA
+\begin{coromd}
+$0
+\end{coromd}
+endsnippet
+
